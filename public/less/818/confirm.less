@@ -1,0 +1,68 @@
+.confirmPay{
+  margin-top: 20px;
+  background: @c_fff;
+  .bordered();
+  .confirmDiv{
+    height: 88px;
+    line-height: 88px;
+    .flex_box_container();
+    justify-content: space-between;
+    .borderedBt();
+    padding: 0  3% 0 5%;
+    font-size: 26px;/*px*/
+    &:after{
+      left: 5%;
+      width: 190%;
+    }
+    &:last-child{
+      &:after{
+        border-bottom: none;
+      }
+    }
+    .payBox{
+      color: #444;
+      i{
+        display: inline-block;
+        width: 35px; /*px*/
+        height: 35px;/*px*/
+        background: url("../../images/i.png") no-repeat;
+        vertical-align: middle;
+        margin-left: 15px;
+      }
+    }
+    .payRight{
+      color: #a9a9a9;
+      input{
+        background: none;
+        text-align: right;
+      }
+      ::-webkit-input-placeholder { /* WebKit browsers */
+        color: #dbdbdb;
+      }
+      :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #dbdbdb;
+      }
+      ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #dbdbdb;
+      }
+      :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: #dbdbdb;
+      }
+    }
+    .blue{
+      color: @blue;
+    }
+  }
+}
+.btnConfirm{
+  display: block;
+  width: 92%;
+  height: 80px;
+  line-height: 80px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 30px; /*px*/
+  color: @c_fff;
+  .border-radius(10px);
+  background: @blue;
+}

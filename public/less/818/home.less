@@ -1,0 +1,220 @@
+.container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: #efeff5;
+  font-weight: lighter;
+}
+.explain{
+   padding: 25px 60px 20px 30px;
+   h5{
+     font-size: 30px;/*px*/
+     color: #030303;
+   }
+   p{
+     font-size: 26px;/*px*/
+     color: #536277;
+   }
+}
+.memberClass{
+  background: @c_fff;
+  padding: 20px 0;
+  .bordered();
+  .lay{
+    font-size: 26px;/*px*/
+    padding-left: 30px;
+    h5{
+      color: #5aa5f0;
+      padding-left: 56px;
+    }
+    p{
+      color: #999;
+      padding-left: 56px;/*px*/
+    }
+    &:first-child{
+      h5{
+        background: url("../../images/icon1.png") no-repeat left center;
+        background-size: 26px 24px;/*px*/
+      }
+    }
+    &:nth-child(2){
+      margin: 25px 0;
+      h5{
+        background: url("../../images/icon2.png") no-repeat left center;
+        background-size: 29px 29px;/*px*/
+      }
+    }
+    &:last-child{
+      h5{
+        background: url("../../images/icon3.png") no-repeat left center;
+        background-size: 29px 24px;/*px*/
+      }
+    }
+  }
+  .first{
+    h5{
+      color: #c38403;
+    }
+  }
+}
+.fillMess{
+  margin: 30px 0 0;
+  background: @c_fff;
+  .borderedTop();
+  .fillHeader{
+    height: 110px;
+    padding: 0 38px 0 28px;
+    .flex_box_container();
+    align-items: center;
+    justify-content: space-between;
+    .borderedBt();
+    h5{
+      font-size: 30px;/*px*/
+      color: #030303;
+      line-height: 110px;
+    }
+    .jifen{
+      span{
+        font-size: 22px;/*px*/
+        color: #999;
+        display: block;
+      }
+      p{
+        font-size: 28px;/*px*/
+        color: @blue;
+      }
+    }
+  }
+  .messDiv{
+    .borderedBt();
+    .flex_box_container();
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    .num{
+      width: 80px;
+      line-height: 176px;
+      font-size: 36px;/*px*/
+      color: #bbddff;
+      text-align: center;
+      position: relative;
+      &:after{
+        content: '';
+        width: 200%;
+        height: 200%;
+        .scale(0.5,0.5);
+        .transform-origin(0,0);
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-right: 1px dashed #c8c7cc;/*no*/
+      }
+    }
+    .message{
+      .box_flex(1);
+      padding-left: 12px;
+      .messBox{
+        height: 88px;
+        .borderedBt();
+        label,input{
+          display: inline-block;
+        }
+        label{
+          font-size: 26px;/*px*/
+          color: #333;
+          width: 195px;
+          height: 88px;
+          line-height: 88px;
+          &.error{
+             color: #ff5374;
+          }
+        }
+        input{
+          font-size: 26px;/*px*/
+          color: #dfdfdf;
+          vertical-align: middle;
+        }
+        &:last-child:after{
+          display: none;
+        }
+      }
+    }
+    .remove{
+      width: 140px;
+      line-height: 176px;
+      background: #f73d42;
+      color: #fff;
+      text-align: center;
+      font-size: 24px;/*px*/
+      display: none;
+    }
+    .selected{
+      .translate(80px; 0);
+    }
+  }
+}
+.btnBox{
+  padding: 30px 0;
+  .btn{
+    display: block;
+    width: 92%;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px; /*px*/
+    color: @c_fff;
+    .border-radius(10px);
+    &.blue{
+      background: @blue;
+    }
+    &.orange{
+      background: @orange;
+      margin-top: 20px;
+    }
+  }
+}
+.cover{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.8);
+  display: none;
+}
+.errorMess{
+  display: none;
+  width: 72%;
+  height: 360px;
+  position: absolute;
+  top: 50%;
+  margin-top: -270px;
+  left: 50%;
+  margin-left: -36%;
+  background: @c_fff;
+  .border-radius(54px);
+  z-index: 101;
+  .tishi{
+    height: 76%;
+    font-size: 30px;/*px*/
+    color: #262626;
+    .flex_box_container();
+    align-items: center;
+    justify-content: center;
+    .borderedBt();
+    p{
+      text-align: center;
+    }
+  }
+  .confirmBtn{
+    height: 24%;
+    display: block;
+    font-size: 32px;/*px*/
+    .flex_box_container();
+    align-items: center;
+    justify-content: center;
+  }
+}

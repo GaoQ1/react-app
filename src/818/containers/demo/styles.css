@@ -1,0 +1,23 @@
+.panel-header{
+  height: 166px;
+  border-bottom: 1px solid #c8c7cc; /*no*/
+  box-sizing: border-box;
+  padding-left: 28px;
+  padding-right: 66px;
+  padding-top: 30px;
+  background-color: #efeff5;
+}
+
+.pink{
+  background-color: #ff7f00;
+}
+
+.white{
+  background-color: #fff;
+  border: 1px solid #5aa5f0;
+  color: #7ebff5;
+}
+
+.blue{
+  background-color: #5aa5f0;
+}
