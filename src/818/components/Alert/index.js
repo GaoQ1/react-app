@@ -1,19 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import styles from '../../../../public/less/818/index.less';
 
-function Alert(props) {
-  return (
-    <div>
-      <div class={styles.cover}></div>
-      <div class={styles.errorMess}>
-          <div class={styles.tishi}>
-            <p>会员1和会员2已经登记<br />请勿重复登记</p>
-          </div>
-          <a href="javascript:;" class={styles.confirmBtn}>确定</a>
+class Alert extends Component {
+
+  constructor(...state){
+      super(...state);
+      this.state = {
+        alertStyle : styles.hide,
+        msg: ''
+      };
+  }
+
+  setAlertShow(msg){
+    this.setState({
+      alertStyle:'',
+      msg
+    })
+  }
+
+  componentWillMount(){
+
+  }
+
+  comfirm(){
+    this.setState({alertStyle: styles.hide})
+  }
+
+  componentWillUnmount(){
+
+  }
+  render(){
+    return (
+      <div>
+        <div class={`${styles.cover} ${this.state.alertStyle}`}></div>
+        <div class={`${styles.errorMess} ${styles.hide}`}>
+            <div class={styles.tishi}>
+              <p>{this.state.msg}</p>
+            </div>
+            <a href="javascript:;" class={styles.confirmBtn} onClick={ this.props.confirm}>确定</a>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Alert;
