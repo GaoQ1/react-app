@@ -34,8 +34,7 @@ function matchDispatchToProps(dispatch){
 
 @connect(matchStateToProps, matchDispatchToProps)
 
-export default  class App extends Component {
-
+export default class App extends Component {
     static propTypes = {
       visibleTodos: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,

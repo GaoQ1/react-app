@@ -52,8 +52,7 @@ export const bindBack=(()=>{
 })()
 
 
-export function hybirdLogin(redirectUrl, title) {
-            var url = redirectUrl;
+export function hybirdLogin(url=location.href, title) {
             url=url.replace(/\&/g,'&amp;');
             try{
                 switch (DeviceType) {

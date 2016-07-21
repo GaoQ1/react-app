@@ -1,5 +1,6 @@
 import 'whatwg-fetch'
-/*
+import {hybirdLogin,getP} from './HybirdAPI/UtilityApi'
+import { alert} from '../818/utils/alert';/*
 	@option object
 	{
 		method 请求方式
@@ -11,12 +12,14 @@ import 'whatwg-fetch'
 	}
 */
 const ceFecth=function(option){
-	let {method='GET',data,url,params,credentials='include',headers={},...config}=option;
-	headers=Object.assign({'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',Accept:'application/json, text/plain, */*'},headers);
+	let {method='GET',data,url,params={},credentials, mode="no-cors",headers={},...config}=option;	
 	if(method.toUpperCase()=='POST')
 	{
+		headers=Object.assign({'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',Accept:'application/json, text/plain, */*'},headers);
 		config.body=headers['Content-Type'].indexOf('x-www-form-urlencoded')==-1?data:serialize(data);
 	}
+
+	Object.assign(params,{p:getP()});//传p值
 	url=buildUrl(url,paramSerializer(params));	
 	return fetch(url,{
 		method,
@@ -66,11 +69,17 @@ function catchParseJSON(error){
 }
 
 function checkCode(response={}){
-	 switch(response.Code){
-		case 200:
+	 switch(response.Code*1){
+		case 0:
 			return Promise.resolve(response);
 			break;
+		case 4:
+			hybirdLogin();
+			Promise.reject(response);
+			break;
 		default:
+			if(response.Message)
+				alert(response.Message);
 			return Promise.reject(response);
 	}
 }
