@@ -20,7 +20,7 @@ const ceFecth=function(option){
 	}
 
 	Object.assign(params,{p:getP()});//传p值
-	url=buildUrl(url,paramSerializer(params));	
+	url=window.ApiUrl+buildUrl(url,paramSerializer(params));	
 	return fetch(url,{
 		method,
 		credentials,

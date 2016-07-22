@@ -1,9 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = [{
     devServer: {
         inline: true,
         contentBase: './dist/818/',
@@ -53,6 +54,17 @@ module.exports = {
           require('postcss-px2rem')({remUnit:75})
         ],
     plugins: [
-        new ExtractTextPlugin("styles.css", { allChunks: true })
+        new ExtractTextPlugin("styles.css", { allChunks: true }),
+        new HtmlWebpackPlugin({
+          filename: './index.html',
+          template: './src/818/index.html',
+          hash: true
+        })
     ]
-};
+},{
+  entry: './src/818/client.config.js',
+  output: {
+    path: './dist/818',
+    filename: 'client.config.js'
+  }
+}];

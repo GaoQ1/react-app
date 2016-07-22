@@ -5,14 +5,14 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "webpack-dev-server --history-api-fallback",
-    "clean": "rimraf dist/818/js && rimraf dist/818/styles.css && rimraf dist/818/styles.css.map",
-    "build": "npm run clean && webpack --config webpack.config.prod.js",
+    "clean": "rimraf dist/818/*",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "anysis": "webpack --profile --json > anysis.json",
     "webpack": "webpack",
     "webpack:w": "webpack -w"
   },
   "dependencies": {
     "autoprefixer": "^6.3.7",
-    "axios": "^0.12.0",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -36,6 +36,7 @@
     "extract-text-webpack-plugin": "^0.8.1",
     "file-loader": "^0.9.0",
     "history": "^1.17.0",
+    "html-webpack-plugin": "^2.22.0",
     "img-loader": "^1.3.1",
     "json-loader": "^0.5.4",
     "less": "^2.7.1",

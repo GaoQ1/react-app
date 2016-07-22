@@ -2,8 +2,9 @@ var path = require('path');
 var webpack = require('webpack');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = [{
     entry: [
       path.resolve(__dirname, 'src/818/index.js')
     ],
@@ -48,8 +49,32 @@ module.exports = {
         ],
     plugins: [
         new ExtractTextPlugin("styles.css", { allChunks: true }),
+        new HtmlWebpackPlugin({
+          filename: './index.html',
+          template: './src/818/index.html',
+          hash: true
+        }),
         new webpack.optimize.DedupePlugin(),
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          },
+
+          __CLIENT__: true,
+          __SERVER__: false,
+          __DEVELOPMENT__: false,
+          __DEVTOOLS__: false
+        }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({mangle:false,sourcemap:false,compress: {warnings: false}})
     ]
-};
+},{
+    entry: './src/818/client.config.js',
+    output: {
+      path: './dist/818',
+      filename: 'client.config.js'
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({mangle:false,sourcemap:false,compress: {warnings: false}})
+    ]
+}];
