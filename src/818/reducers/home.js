@@ -7,33 +7,33 @@ export function homeLoad(state = {
 	fields:[new FieldsCreater]
 }, action) {
   switch (action.type) {
-    case `${HOME_LOAD}_SUCCESS`:
-      return homeLoadSuccess(state,action);
+      case `${HOME_LOAD}_SUCCESS`:
+          return homeLoadSuccess(state, action);
 
-    case `${HOME_LOAD}_ERROR`:
-      return state
+      case `${HOME_LOAD}_ERROR`:
+          return state
 
-  	case ADD_INPUT_FIELD:
-	  return addInputField(state,action);
-  		
-	case REMOVE_INPUT_FIELD:
-	  return removeInputField(state,action);
-  		
-	case SET_TRANSLATE:
-	  return setTranslateX(state,action);
-  		
-	case SUBMIT:
-		return submit(state,action);
-	
-	case `${SUBMIT_DATA}_SUCCESS`:
-		return submitDataSuccess(state,action);
+      case ADD_INPUT_FIELD:
+          return addInputField(state, action);
 
-	case UPDATE_INPUT_FIELD:
-		return updateFiled(state,action)
-    default:
-      return state
+      case REMOVE_INPUT_FIELD:
+          return removeInputField(state, action);
+
+      case SET_TRANSLATE:
+          return setTranslateX(state, action);
+
+      case SUBMIT:
+          return submit(state, action);
+
+      case `${SUBMIT_DATA}_SUCCESS`:
+          return submitDataSuccess(state, action);
+
+      case UPDATE_INPUT_FIELD:
+          return updateFiled(state, action)
+      default:
+          return state
   }
-}
+  }
 
 /*进入页面获取用户数据*/
 function homeLoadSuccess({fields,...loadData} , {payload:{Data}}){
@@ -89,28 +89,28 @@ function setTranslateX({fields,...loadData},{index,translateX}){
 function submit({fields,TotalPoint,...loadData},action){
 	let validator=createValidator({
 			card: [required('卡号为空'), verifyCard()],
-			phone: [required('手机号为空'), verifyPhone()]			
+			phone: [required('手机号为空'), verifyPhone()]
 		}),
 		vaility=true,
 		len=fields.length;
 	fields.forEach((field)=>{
 		let {card,phone}=field;
-		let error= validator({card,phone});		
+		let error= validator({card,phone});
 		field.error=error||{};
 		if(!checkOnly(field,fields)||error){
-			vaility=!vaility?vaility:false;			
+			vaility=!vaility?vaility:false;
 		}
 	})
 	if(vaility){
 		if( Math.floor(TotalPoint/1000)<len ){
 			alert('积分不足！');
-		}					
+		}
 		else{
 			let params=[];
 			fields.forEach((field)=>{
 				let {card,phone}=field;
 				let type= loadData.ChangPassengerCard==card?1:2;
-				
+
 				params.push({
 					ffpNo:card,
 					mobileNo:phone,
@@ -118,7 +118,7 @@ function submit({fields,TotalPoint,...loadData},action){
 				})
 			})
 
-			setTimeout(()=>store.dispatch(submitToServer({userInfoRequests:params})),0)		
+			setTimeout(()=>store.dispatch(submitToServer({userInfoRequests:params})),0)
 		}
 	}
 
@@ -139,7 +139,7 @@ function checkOnly(field,fields){
 				if(fd[key]!=undefined&& fd[key]!=''&& fd[key]==field[key]){
 					errors=errors||{};
 					errors[key]=msg;
-					vaility=!vaility?vaility:false;	
+					vaility=!vaility?vaility:false;
 				}
 			})
 
@@ -168,7 +168,7 @@ function getId(){
 	return ++id;
 }
 
-function FieldsCreater(args={}){	
+function FieldsCreater(args={}){
 	let {card,phone}=args;
 	this.id=getId();
 	this.card=card;
@@ -177,5 +177,5 @@ function FieldsCreater(args={}){
 	this.error={
 		card:null,
 		phone:null
-	}	
+	}
 }
