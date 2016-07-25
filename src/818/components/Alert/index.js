@@ -13,7 +13,8 @@ class Alert extends Component {
       };
   }
 
-  setAlertShow = (msg) => {
+  setAlertShow = (msg,fn) => {
+    this.comfirmHandler=fn;
     this.setState({
       alertStyle:'',
       msg
@@ -24,8 +25,10 @@ class Alert extends Component {
     addAlertEvent(this.setAlertShow)
   }
 
-  comfirm = () => {
+  comfirm = () => {   
     this.setState({alertStyle: styles.hide});
+    if(typeof this.comfirmHandler=='function')
+      setTimeout(this.comfirmHandler,0);
   }
 
   componentWillUnmount(){

@@ -12,7 +12,7 @@ import { alert} from '../818/utils/alert';/*
 	}
 */
 const ceFecth=function(option){
-	let {method='GET',data,url,params={},credentials, mode="no-cors",headers={},...config}=option;	
+	let {method='GET',data,url,params={},credentials, mode="no-cors",headers={},...config}=option;
 	if(method.toUpperCase()=='POST')
 	{
 		headers=Object.assign({'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',Accept:'application/json, text/plain, */*'},headers);
@@ -20,7 +20,7 @@ const ceFecth=function(option){
 	}
 
 	Object.assign(params,{p:getP()});//传p值
-	url=window.ApiUrl+buildUrl(url,paramSerializer(params));	
+	url=(window.ApiUrl||'')+buildUrl(url,paramSerializer(params));
 	return fetch(url,{
 		method,
 		credentials,
@@ -51,16 +51,16 @@ function _post(url,data={},{...config}={}){
 }
 
 function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {  	
+  if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
   } else {
     var error = new Error(response.statusText)
     error.response = response
-    return Promise.reject(response) 
+    return Promise.reject(response)
   }
 }
 
-function parseJSON(response) {	
+function parseJSON(response) {
   return response.json()
 }
 
@@ -99,7 +99,7 @@ function param(data,prefix,strs){
 			var pref = prefix + '[' + key + ']';
 			param(data[key], pref, strs);
 		})
-		
+
 	} else if(data!==undefined) {
 		strs.push(encodeURIComponent(prefix) + '=' + encodeURIComponent(data));
 	}
@@ -111,7 +111,7 @@ function paramSerializer(params={}) {
 	Object.keys(params).forEach((key)=>{
 		if(typeof params[key]!=='object'&& params[key]!==undefined)
 			parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
-	}) 
+	})
 
 	return parts.join('&');
 };

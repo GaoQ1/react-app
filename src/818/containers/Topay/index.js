@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router'
 
+import { alert } from '../../utils/alert'
+
 import styles from '../../../../public/less/818/index.less'
 
 class Topay extends Component {

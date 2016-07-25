@@ -2,8 +2,8 @@ import eventEmitter from 'event-emitter'
 
 let msgEmitter=new eventEmitter();
 
-export function alert(msg){
-	msgEmitter.emit('$alert',msg);
+export function alert(...args){
+	msgEmitter.emit('$alert',...args);
 }
 
 export function addAlertEvent(fn){

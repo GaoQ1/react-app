@@ -9,7 +9,9 @@ const store = createStore(
     reducer,
     applyMiddleware(promiseMiddleware({
     promiseTypeSuffixes: ['LOADING', 'SUCCESS', 'ERROR']
-  }), thunk, logger())
+  }), thunk
+    , logger()
+    )
 );
 
 export default store;
