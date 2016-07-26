@@ -6,6 +6,7 @@
   right: 0;
   background: #efeff5;
   font-weight: lighter;
+  overflow: scroll;
 }
 .explain{
    padding: 25px 60px 20px 30px;
@@ -123,9 +124,8 @@
       .messBox{
         height: 88px;
         .borderedBt();
-        label,input{
-          display: inline-block;
-        }
+        .flex_box_container();
+        align-items: center;
         label{
           font-size: 26px;/*px*/
           color: #333;
@@ -139,7 +139,7 @@
         input{
           font-size: 26px;/*px*/
           color: #000;
-          vertical-align: middle;
+          .box_flex(1);
         }
         &:last-child:after{
           display: none;

@@ -24,7 +24,7 @@ function routerEnter(nextState, replace,callback){
 	let {location:{query,pathname}}=nextState;
 	// console.log(nextState)
 	saveAppParam(query);//存取hybird 传递的参数
-	sendPageView();//ga 发送页面统计
+	sendPageView(query.p);//ga 发送页面统计
 	let p=getP();
 	!p==true?hybirdLogin():callback();	//检查登陆
 	let isFirst=['/topay'].indexOf(pathname)>-1;

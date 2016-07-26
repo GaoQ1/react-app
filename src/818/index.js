@@ -7,9 +7,11 @@ import '../common/flexible'; //手淘flexible库
 
 import routes from './routes';
 import store from './store';
+import fastclick from 'fastclick'
 
 import {gaInit,fxInit,gwdInit} from '../common/pageViewStat'
 import {bindTitle} from '../common/HybirdAPI/UtilityApi'
+initFastClick();
 (gaInit(),fxInit(),gwdInit())//统计代码部署
 bindTitle('818提前购活动入场券');//hybird app设置标题
 
@@ -19,3 +21,10 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
+
+
+function initFastClick(){
+	document.addEventListener('DOMContentLoaded', function() {
+		fastclick.attach(document.body);
+	}, false);
+}

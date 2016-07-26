@@ -1,5 +1,4 @@
 
-
 let gaPromise;
 export function gaInit(){	
 	gaPromise=new Promise((resolve)=>{
@@ -15,11 +14,13 @@ export function gaInit(){
 	});		
 }
 
-export function sendPageView(){
+export function sendPageView(p){
 	if(!gaPromise)
 		throw new Error('ga is not init!');
 	let path=location.pathname,
    		hash=location.hash;
+   		if(p)
+   			hash=hash.replace('p='+ encodeURIComponent(p),'')//不发送p值
 	gaPromise.then(()=>{
 		try{				   						
 			ga('create', 'UA-80008755-2', 'auto');

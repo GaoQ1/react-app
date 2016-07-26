@@ -201,6 +201,7 @@ body * {
   right: 0;
   background: #efeff5;
   font-weight: lighter;
+  overflow: scroll;
 }
 
 .explain {
@@ -390,6 +391,8 @@ body * {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -412,6 +415,11 @@ body * {
 .fillMess .fillHeader h5 {
   color: #030303;
   line-height: 1.466667rem;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 [data-dpr="1"] .fillMess .fillHeader h5 {
@@ -545,6 +553,13 @@ body * {
 .fillMess .messDiv .message .messBox {
   height: 1.173333rem;
   position: relative;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
 }
 
 .fillMess .messDiv .message .messBox:after {
@@ -559,11 +574,6 @@ body * {
   left: 0;
   bottom: 0;
   border-bottom: 1px solid #c8c7cc;
-}
-
-.fillMess .messDiv .message .messBox label,
-.fillMess .messDiv .message .messBox input {
-  display: inline-block;
 }
 
 .fillMess .messDiv .message .messBox label {
@@ -591,7 +601,11 @@ body * {
 
 .fillMess .messDiv .message .messBox input {
   color: #000;
-  vertical-align: middle;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 [data-dpr="1"] .fillMess .messDiv .message .messBox input {
@@ -706,7 +720,9 @@ body * {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
+  -webkitjustify-content: center;
   justify-content: center;
   position: relative;
 }
