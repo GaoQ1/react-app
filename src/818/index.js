@@ -15,6 +15,7 @@ initFastClick();
 (gaInit(),fxInit(),gwdInit())//统计代码部署
 bindTitle('818提前购活动入场券');//hybird app设置标题
 
+//sdfasfasdfas
 ReactDOM.render(
     <Provider store={store}>
         <Router routes={routes} history={hashHistory} />
