@@ -9,10 +9,10 @@ export const SUBMIT_DATA='SUBMIT_DATA';
 export const UPDATE_INPUT_FIELD='UPDATE_INPUT_FIELD'
 
 export const homeLoad = () => {
-    return {
-        type: HOME_LOAD,
-        payload: get('api/UserInfo/GetUserInfo')
-    }
+  return {
+    type: HOME_LOAD,
+    payload: get('api/UserInfo/GetUserInfo')
+  }
 };
 
 

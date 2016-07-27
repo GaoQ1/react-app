@@ -70,7 +70,6 @@ class Home extends Component {
   }
 
   touchStartHandler=(e,index)=>{
-    // e.preventDefault();
     let point=e.touches ? e.touches[0] : e;
     this.maxX=-this.refs['del'+index].offsetWidth;
     this.pointX    = point.pageX;
