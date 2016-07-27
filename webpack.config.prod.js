@@ -5,9 +5,17 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [{
-    entry: [
-      path.resolve(__dirname, 'src/818/index.js')
-    ],
+    entry: {
+      app: path.resolve(__dirname, 'src/818/index.js'),
+      vendor: [
+        'react',
+        'react-dom',
+        'react-redux',
+        'react-router',
+        'redux',
+        'redux-thunk'
+      ]
+    },
     output: {
         path: path.resolve(__dirname, 'dist/818'),
         filename: 'js/bundle.min.js'
@@ -66,7 +74,8 @@ module.exports = [{
           __DEVTOOLS__: false
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({mangle:false,sourcemap:false,compress: {warnings: false}})
+        new webpack.optimize.UglifyJsPlugin({mangle:false,sourcemap:false,compress: {warnings: false}}),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
     ]
 },{
     entry: './src/818/client.config.js',

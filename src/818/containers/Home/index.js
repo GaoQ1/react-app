@@ -31,15 +31,6 @@ class Home extends Component {
     this.props.homeLoad();
   }
 
-  setTranslate(distX){
-    this.setState({'style':{
-        transform:`translate(${distX}px)`
-    }})
-    this.setState({
-        translateX:distX
-    })
-  }
-
   bindEvent=(index,type)=>{
     let eventHandle=new Function;
     switch(type){

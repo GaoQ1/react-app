@@ -7,7 +7,6 @@ export function required(errorMsg='Required') {
         return  errorMsg;
       }
   }
-
 }
 
 export function verifyPhone(errorMsg='手机号错误'){
@@ -19,8 +18,15 @@ export function verifyPhone(errorMsg='手机号错误'){
 
 export function verifyCard(errorMsg='卡号错误'){
   return (value)=>{
-    if(!/^6[\d]{11}$/.test(value))
+    if(!verifyCardMOD7(value))
       return errorMsg;
+  }
+
+  function verifyCardMOD7(value){
+    if(isEmpty(value))return true;
+    let reg=/^(6)([0-6]{1})(\d{10})$/,
+    arrSplit = value.match(reg);
+    return arrSplit&&(arrSplit[1]+'0'+arrSplit[3])%7==arrSplit[2];
   }
 }
 
@@ -35,7 +41,6 @@ export function createValidator(rules) {
         errors= errors||{};
         errors[key] = error||'';
       }
-       
     });
     return errors;
   };

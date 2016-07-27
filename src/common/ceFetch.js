@@ -1,4 +1,4 @@
-import 'whatwg-fetch'
+import './fetch'
 import {hybirdLogin,getP} from './HybirdAPI/UtilityApi'
 import { alert} from '../818/utils/alert';/*
 	@option object
