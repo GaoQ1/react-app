@@ -74,7 +74,7 @@ module.exports = [{
           __DEVTOOLS__: false
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({mangle:false,sourcemap:false,compress: {warnings: false}}),
+        // new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
     ]
 },{
@@ -82,8 +82,5 @@ module.exports = [{
     output: {
       path: './dist/818',
       filename: 'client.config.js'
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({mangle:false,sourcemap:false,compress: {warnings: false}})
-    ]
+    }
 }];
