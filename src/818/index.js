@@ -9,10 +9,10 @@ import routes from './routes';
 import store from './store';
 import fastclick from 'fastclick'
 
-import {gaInit,fxInit,gwdInit} from '../common/pageViewStat'
+import {gaInit} from '../common/pageViewStat'
 import {bindTitle} from '../common/HybirdAPI/UtilityApi'
-initFastClick();
-(gaInit(),fxInit(),gwdInit())//统计代码部署
+initFastClick();//解决ios点击延迟
+gaInit()//统计代码部署
 bindTitle('818提前购活动入场券');//hybird app设置标题
 
 //sdfasfasdfas
@@ -22,7 +22,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-
 
 function initFastClick(){
 	document.addEventListener('DOMContentLoaded', function() {

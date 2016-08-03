@@ -11,6 +11,8 @@ import { alert} from '../818/utils/alert';/*
 		其他参数根据fecth规范
 	}
 */
+let reqCount=0;
+
 const ceFecth=function(option){
 	let {method='GET',data,url,params={},credentials, mode="no-cors",headers={},...config}=option;
 	if(method.toUpperCase()=='POST')
@@ -21,6 +23,10 @@ const ceFecth=function(option){
 
 	Object.assign(params,{p:getP()});//传p值
 	url=(window.ApiUrl||'')+buildUrl(url,paramSerializer(params));
+	reqCount++;
+	if(reqCount>0){
+		showLoading();
+	}
 	return fetch(url,{
 		method,
 		credentials,
@@ -51,6 +57,8 @@ function _post(url,data={},{...config}={}){
 }
 
 function checkStatus(response) {
+  reqCount--;	
+  if(reqCount==0)hideLoading();
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
   } else {
@@ -58,6 +66,18 @@ function checkStatus(response) {
     error.response = response
     return Promise.reject(response)
   }
+}
+
+function showLoading(){
+	var loding=document.querySelector('#loading');
+	if(loding)
+		loding.style.display='block';
+}
+
+function hideLoading(){
+	var loding=document.querySelector('#loading');
+	if(loding)
+		loding.style.display='none';
 }
 
 function parseJSON(response) {
@@ -75,7 +95,7 @@ function checkCode(response={}){
 			break;
 		case 4:
 			hybirdLogin();
-			Promise.reject(response);
+			return Promise.reject(response);
 			break;
 		default:
 			if(response.Message)

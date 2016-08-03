@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --history-api-fallback",
     "clean": "rimraf dist/818/*",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "anysis": "webpack --profile --json > anysis.json",
+    "anysis": "webpack --profile --json > stats.json",
     "webpack": "webpack",
     "webpack:w": "webpack -w"
   },

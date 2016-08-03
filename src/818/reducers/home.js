@@ -1,5 +1,6 @@
 import { HOME_LOAD,ADD_INPUT_FIELD,REMOVE_INPUT_FIELD,SET_TRANSLATE,SUBMIT,SUBMIT_DATA,submitToServer,UPDATE_INPUT_FIELD } from '../actions/home';
 import {createValidator,required,verifyPhone,verifyCard} from '../utils/validation'
+import {getP} from '../../common/HybirdAPI/UtilityApi'
 import {alert} from '../utils/alert'
 import store from '../store'
 let id=0;
@@ -40,7 +41,7 @@ function homeLoadSuccess({fields,...loadData} , {payload:{Data}}){
 
 	let {ChangPassengerCard,MobilePhone,UserType,TotalPoint}=Data;
 
-	if(UserType!=2){
+	if(UserType==2){
 		fields[0].card=ChangPassengerCard;
 		fields[0].phone=MobilePhone;
 	}
@@ -49,12 +50,14 @@ function homeLoadSuccess({fields,...loadData} , {payload:{Data}}){
 		fields.push(new FieldsCreater())
 	else if(TotalPoint<1000){
 		alert('积分不足！',function(){
-			//跳转
+			location.href='http://eb.ceair.com/activity/818/assets/index.html';
 		});
 	}
 
 	return {
 		TotalPoint,
+		ChangPassengerCard,
+		MobilePhone,
 		fields,
 		...loadData
 	};
@@ -109,15 +112,20 @@ function submit({fields,TotalPoint,...loadData},action){
 			let params=[];
 			fields.forEach((field)=>{
 				let {card,phone}=field;
-				let type= loadData.ChangPassengerCard==card?1:2;
+				let type= 2;
 
 				params.push({
 					ffpNo:card,
 					mobileNo:phone,
 					type
 				})
-			})
 
+			})
+			params.unshift({
+				ffpNo:loadData.ChangPassengerCard,
+				mobileNo:loadData.MobilePhone,
+				type:1
+			})
 			setTimeout(()=>store.dispatch(submitToServer({userInfoRequests:params})),0)
 		}
 	}
@@ -151,7 +159,9 @@ function checkOnly(field,fields){
 
 }
 
-function submitDataSuccess(state,action){
+function submitDataSuccess(state,{payload:{Data}}){
+	if(Data.PaymentUrl)		
+		location.href=Data.PaymentUrl+((Data.PaymentUrl.indexOf('?') == -1) ? '?' : '&') + 'p='+encodeURIComponent(getP());
 	return state;
 }
 
