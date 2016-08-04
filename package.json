@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --history-api-fallback",
     "clean": "rimraf dist/818/*",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && gulp",
-    "anysis": "webpack --profile --json > anysis.json",
+    "anysis": "webpack --profile --json > stats.json",
     "webpack": "webpack",
     "webpack:w": "webpack -w"
   },
@@ -70,9 +70,9 @@
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-transform-runtime": "^6.9.0",
-    "gulp": "^3.9.1",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-uglify": "^2.0.0",
+    "gulp": "3.9.1",
+    "gulp-cssmin": "0.1.7",
+    "gulp-uglify": "2.0.0",
     "react-transform-hmr": "^1.0.4"
   }
 }

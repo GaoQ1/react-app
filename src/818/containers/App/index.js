@@ -10,6 +10,8 @@ class App extends Component {
   render() {
     return (
       <div>
+      	<div id='loading'  class={`${styles['request-load']} ${styles.hideCss}`}>
+    	</div>
         <Alert />
         {this.props.children}
       </div>

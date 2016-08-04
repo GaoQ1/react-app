@@ -81,7 +81,6 @@ class Home extends Component {
   }
 
   touchMoveHandler=(e,index)=>{
-
     let point       = e.touches ? e.touches[0] : e,
         deltaX      = point.pageX - this.pointX,
         deltaY      = point.pageY - this.pointY,
@@ -104,7 +103,7 @@ class Home extends Component {
         return;
     }else
         e.preventDefault();
-    newX=this.props.homeData.fields[index].translateX+deltaX;
+    newX=this.props.homeData.fields[index].translateX+deltaX/0.5;
     newX=newX<maxX?maxX:newX>0?0:newX;
     this.props.setTranslateX(index,newX);
   }
@@ -117,11 +116,11 @@ class Home extends Component {
   }
 
   render() {
-    const { homeData } = this.props;
+    const { homeData} = this.props;
 
     let fields=homeData.fields.map((field,index)=>{
         let {id,card='',phone='',error,translateX}=field,
-            fieldStyle={transform:`translate(${translateX}px)`};
+            fieldStyle={transform:`translate(${translateX}px)`,'WebkitTransform':`translate(${translateX}px)`};
         return (
             <div key={id} class={styles.messDivBox} >
                     <div class={styles.messDiv} onTouchStart={this.bindEvent(index,0)} onTouchMove={this.bindEvent(index,1)} onTouchEnd={this.bindEvent(index,2)} style={fieldStyle}>
@@ -142,13 +141,13 @@ class Home extends Component {
             )
     }),
     addStyle={
-        display:fields.length==5?'none':''
+        display:fields.length==homeData.max?'none':''
     }
 
 
     return (
       <div>
-        <div class={styles.container}>
+        <div class={styles.container} >
             <div class={styles.explain}>
                 <h5>818提前购活动入场券购买说明:</h5>
                 <p>818当天"全航线直减"产品在8月17号18:00提前开发销售,但仅限高端会员及有入场券的普卡会员参加。</p>

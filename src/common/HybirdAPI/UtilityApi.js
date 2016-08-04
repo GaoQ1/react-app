@@ -71,7 +71,6 @@ export function hybirdLogin(url=location.href, title) {
             }
         }
 
-
 export function saveAppParam(params={}){
     let {p,Entry}=params;
     p&&saveP(p);
@@ -79,15 +78,17 @@ export function saveAppParam(params={}){
 }
 
 export function saveP(p){   
-    p&&setCookie('p',p);    
+    p&&sessionStorage.setItem('p',p);
+    //p&&setCookie('p',p,{path:'/'});    
 }
 
 export function getP(){
-    return getCookie('p');
+    return sessionStorage.getItem('p');
+    //return getCookie('p');
 }
 
 export function saveEntry(Entry){
-    Entry&&setCookie('Entry',Entry);
+    Entry&&setCookie('Entry',Entry,{path:'/'});
 }
 
 export function getEntry(Entry){
@@ -95,7 +96,17 @@ export function getEntry(Entry){
 }
 
 export function isHybird(){
-    return getEntry()==1;
+    switch (DeviceType) {
+        case "Android":
+            return !!window.Login&&!!window.gotoback;            
+            
+        case "IOS":
+            return !!window.clickOnback&&!!window.clickOnLogin;
+           
+        case "WP":
+            return !!window.external&&!!window.external.notify;
+           
+    }
 }
 
 export function isHybirdLogin(){
