@@ -53,19 +53,22 @@ function homeLoadSuccess({fields,...loadData} , {payload:{Data}}){
 			location.href='http://eb.ceair.com/activity/818/assets/index.html';
 		});
 	}
-
+	let max= Math.floor(TotalPoint/1000);
+	max=max>5?5:max;
 	return {
 		TotalPoint,
 		ChangPassengerCard,
 		MobilePhone,
 		fields,
+		max,
 		...loadData
 	};
 }
 
 
-function addInputField({fields,...loadData} , action){
-	if(fields.length<5)
+function addInputField({fields,...loadData} , action){	
+	console.log(loadData.max)
+	if(fields.length<loadData.max)
 		fields.push(new FieldsCreater());
 	return {
 		fields,

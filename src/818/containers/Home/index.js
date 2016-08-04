@@ -116,7 +116,7 @@ class Home extends Component {
   }
 
   render() {
-    const { homeData } = this.props;
+    const { homeData} = this.props;
 
     let fields=homeData.fields.map((field,index)=>{
         let {id,card='',phone='',error,translateX}=field,
@@ -141,7 +141,7 @@ class Home extends Component {
             )
     }),
     addStyle={
-        display:fields.length==5?'none':''
+        display:fields.length==homeData.max?'none':''
     }
 
 
