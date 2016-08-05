@@ -32,19 +32,30 @@
     justify-content: space-between;
   }
   .orderCenter{
-    font-size: 28px;/*px*/
+    font-size: 24px;/*px*/
     height: 120px;/*px*/
+    color: #999;
+    letter-spacing: -0.6px;
+    p{
+      font-size: 24px;/*px*/
+      font-weight: lighter;
+    }
     .orderLeft{
+      color: #333;
+      font-size: 28px;/*px*/
       padding-top: 20px;/*px*/
       p{
-        font-size: 24px;/*px*/
         color: #999;
       }
     }
-    .jifen{
-      color: #999;
-      font-size: 24px;/*px*/
-      line-height: 120px;/*px*/
+    .orderRight{
+      padding-top: 20px;/*px*/
+      p{
+        margin-top: 2px;
+      }
+      .jifen{
+        text-align: right;
+      }
     }
   }
   .zhifu{
@@ -72,7 +83,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        .border-radius(50px);
+        .border-radius(80px);
       }
     }
   }

@@ -1,4 +1,5 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
+
 import * as home from './home';
 import * as order from './order';
 

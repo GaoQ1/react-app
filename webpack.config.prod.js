@@ -37,7 +37,7 @@ module.exports = [{
             },
             {
                 test: /\.(css|less)$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader!less-loader')
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less-loader')
             },
             {   test: /\.(jpe?g|png|jpg|eot|woff|ttf|svg|gif)$/,
                 loader: "file-loader?name=./img/[name].[ext]?[hash]"
