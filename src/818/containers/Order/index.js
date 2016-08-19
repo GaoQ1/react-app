@@ -50,7 +50,7 @@ class Order extends Component {
 
   isTopay=(status,obj={}) => {
     if(status === '10051' || status === '10054'){
-      obj.styles = 'okPay';
+      obj.styles = styles.okPay;
       obj.show = {display:'none'};
     }else if(status === '10050'){
       obj.styles = '';
@@ -69,15 +69,18 @@ class Order extends Component {
       return (
         <div key={index} class={styles.orderBox}>
            <div class={styles.orderTit}>
-               <div>818提前购活动入场券</div>
+               <div>订单号：{value.orderNo}</div>
                <div class={`${styles.payGo} ${this.isTopay(value.orderStatus).styles}`}>{this.payStatus(value.orderStatus)}</div>
            </div>
             <div class={styles.orderCenter}>
                 <div class={styles.orderLeft}>
                     818提前购入场券
-                    <p>数量: {value.orderNum}张</p>
+                    <p>订单时间:{value.orderCrtDate}</p>
                 </div>
-                <div class={styles.jifen}>{value.pointAmount}积分</div>
+                <div class={styles.orderRight}>
+                    <p>数量: {value.orderNum}张</p>
+                    <div class={styles.jifen}>{value.pointAmount}积分</div>
+                </div>
             </div>
 
             <div class={`${styles.zhifu}`} style={this.isTopay(value.orderStatus).show}>
