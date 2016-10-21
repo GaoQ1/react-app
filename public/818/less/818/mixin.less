@@ -1,0 +1,229 @@
+//清除浮动
+.basefix() {
+  &:before, 
+  &:after { 
+    content: " "; 
+    display: table; 
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//相邻inline-block div 3像素差
+.inline-block-fix() {
+  font-size: 0;
+}
+
+.inline-block() {
+  display:inline-block;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+//flex box
+.flex_box_container() {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.box_flex(@num){
+  -webkit-box-flex: @num;
+  -moz-box-flex: @num;
+  -webkit-flex: @num;
+  -ms-flex: @num;
+  flex: @num;
+}
+
+.box_align(@val:start){
+  box-align: @val;
+  -mozbox-align: @val;
+  -o-align: @val;
+  -webkit-box-align: @val;
+}
+.box_pack(@val:start){
+  box-pack: @val;
+  -moz-box-pack: @val;
+  -o-box-pack: @val;
+  -webkit-box-pack: @val;
+}
+
+//文字超出显示...
+.ellipsis() {
+  text-overflow: ellipsis;
+    white-space: nowrap;
+       overflow: hidden;
+}
+
+//多行文字超出显示...
+.multi_ellipsis(@line) {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+}
+
+//圆角
+.border-radius(@radius) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+//box阴影
+.box_shadow(@x; @y; @r; @color) {
+  -webkit-box-shadow: @x, @y, @r, @color;
+  box-shadow: @x @y @r @color;
+}
+
+//box阴影
+.text_shadow(@x; @y; @r; @color){
+  text-shadow:@x @y @r @color;
+}
+
+//animation
+.animation(@animation) {
+  -webkit-animation: @animation;
+  animation: @animation;
+}
+
+//Transformations/2D
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+  transform: rotate(@degrees);
+}
+
+.scale(@ratioX; @ratioY) {
+  -webkit-transform: scale(@ratioX, @ratioY);
+  transform: scale(@ratioX, @ratioY);
+}
+
+.translate(@x; @y) {
+  -webkit-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
+.skew(@x; @y) {
+  -webkit-transform: skew(@x, @y);
+  transform: skew(@x, @y);
+}
+
+//Transformations/3D
+.translate3d(@x; @y; @z) {
+  -webkit-transform: translate3d(@x, @y, @z);
+  transform: translate3d(@x, @y, @z);
+}
+
+//元素基点
+.transform-origin(@originX; @originY) {
+  -webkit-transform-origin: @originX @originY;
+  transform-origin: @originX @originY;
+}
+
+//Transitions
+.transition(@property; @duration; @function; @delay) {
+  -webkit-transition: @property, @duration, @function, @delay;
+  transition: @property, @duration, @function, @delay;
+}
+
+//Opacity
+.opacity(@opacity) {
+  opacity: @opacity / 100;
+  -webkit-opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+  -wekkit-filter: ~"alpha(opacity=@{opacity})";
+}
+
+//图片自适应
+.maxwidth(){
+  max-width: 100%;
+  height: auto;
+}
+
+//webkit-box弹性盒子模型
+.webkit-box(@orient:horizontal;@align:start;@pack:start;){
+    display:-webkit-box; 
+    -webkit-box-orient:@orient;
+    -webkit-box-align:@align;
+    -webkit-box-pack:@pack;
+    box-sizing:border-box;
+}
+
+.border_arrows_right(@width,@height,@color){
+  &:after{
+    content: "";
+    width: @width;
+    height: @height;
+    background: transparent;
+    border-top: 2px solid @color;
+    border-right: 2px solid @color;
+    display: inline-block;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+.bordered{
+  position: relative;
+  &:before,&:after{
+    content: '';
+    width: 200%;
+    height: 0;
+    .scale(0.5,0.5);
+    .transform-origin(0,0);
+    position: absolute;
+    left: 0;
+  }
+  &:before{
+    top: 0;
+    border-top: 1px solid #c8c7cc;/*no*/
+  }
+  &:after{
+    bottom: 0;
+    border-bottom: 1px solid #c8c7cc;/*no*/
+  }
+}
+
+.borderedBt{
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 0;
+    .scale(0.5,0.5);
+    .transform-origin(0,0);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 1px solid #c8c7cc;/*no*/
+  }
+}
+.borderedTop{
+  position: relative;
+  &:before{
+    content: '';
+    width: 200%;
+    height: 0;
+    .scale(0.5,0.5);
+    .transform-origin(0,0);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top: 1px solid #c8c7cc;/*no*/
+  }
+}
+
+//公用color 
+@c_fff:#fff;
+@c_000:#000;
+@c_333:#333;
+@c_444:#444;
+@c_666:#666;
+@c_999:#999;
+@blue:#5aa5f0;
+@orange:#FF7F00;
+@c_d6d6d6:#d6d6d6;
+@gray:#96A2B5;
+

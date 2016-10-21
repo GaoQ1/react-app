@@ -1,0 +1,592 @@
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+figure,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+em,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+img {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  resize: none;
+  outline: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+a,
+a:hover,
+a:link,
+a:visited,
+a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+dfn,
+em,
+i {
+  font-style: normal;
+}
+
+body {
+  height: 100%;
+  line-height: 1.5;
+  color: #444;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Microsoft YaHei', '微软雅黑', Arial, Roboto, 'Droid Sans', 'Hiragino Sans GB', STXihei, 'sans-serif';
+  border: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body,
+body * {
+  max-height: 100%;
+}
+
+.justify {
+  text-align: justify;
+  letter-spacing: 0;
+  font-size: 0;
+}
+
+.justify:after {
+  content: '';
+  height: 0;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.justify > * {
+  text-align: left;
+  font-size: 0.186667rem;
+}
+
+.text_over {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  background: #041743;
+  overflow: scroll;
+  min-height: 100vh;
+}
+
+.container .banner {
+  position: relative;
+}
+
+.container .banner img {
+  width: 100%;
+  height: auto;
+}
+
+.container .banner .redPocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.container .banner .redPocket a {
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+
+.container .banner .redPocket a:before {
+  content: '';
+  width: 100%;
+  height: 80%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.container .banner .redPocket a img {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.container .proList .proBox {
+  width: 96%;
+  margin: 0 auto 12%;
+  position: relative;
+}
+
+.container .proList .proBox img {
+  width: 100%;
+  height: auto;
+}
+
+.container .proList .proBox:last-child h5 {
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.container .proList .des {
+  width: 100%;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.container .proList .des h5 {
+  color: #fff;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.59);
+  padding: 1% 3% 1% 0;
+}
+
+[data-dpr="1"] .container .proList .des h5 {
+  font-size: 18px;
+}
+
+[data-dpr="2"] .container .proList .des h5 {
+  font-size: 36px;
+}
+
+[data-dpr="3"] .container .proList .des h5 {
+  font-size: 54px;
+}
+
+.container .proList .des p {
+  color: #1c3d89;
+  background: rgba(249, 249, 249, 0.82);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 3%;
+  line-height: 1.8;
+}
+
+[data-dpr="1"] .container .proList .des p {
+  font-size: 14px;
+}
+
+[data-dpr="2"] .container .proList .des p {
+  font-size: 28px;
+}
+
+[data-dpr="3"] .container .proList .des p {
+  font-size: 42px;
+}
+
+.container .proList .firstBox {
+  width: 100%;
+}
+
+.container .proList .firstBox .des {
+  bottom: auto;
+  top: 18%;
+}
+
+.container .proList .firstBox p {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.59);
+}
+
+.pocket {
+  width: 100%;
+}
+
+.pocket > div {
+  padding: 0 9% 3% 5%;
+  vertical-align: middle;
+}
+
+.pocket > div:first-child input {
+  width: 64%;
+}
+
+.pocket label {
+  color: #f9d253;
+  font-weight: bold;
+  vertical-align: middle;
+  margin-right: 2%;
+  letter-spacing: 2px;
+}
+
+[data-dpr="1"] .pocket label {
+  font-size: 16px;
+}
+
+[data-dpr="2"] .pocket label {
+  font-size: 32px;
+}
+
+[data-dpr="3"] .pocket label {
+  font-size: 48px;
+}
+
+.pocket input {
+  background: #fff;
+  width: 35%;
+  height: 1.066667rem;
+  vertical-align: middle;
+  padding-left: 2%;
+}
+
+[data-dpr="1"] .pocket input {
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+[data-dpr="2"] .pocket input {
+  border-radius: 8px;
+  font-size: 30px;
+}
+
+[data-dpr="3"] .pocket input {
+  border-radius: 12px;
+  font-size: 45px;
+}
+
+.pocket button {
+  display: inline-block;
+  width: 26%;
+  height: 1.066667rem;
+  color: #041743;
+  background: #efa63d;
+  text-align: center;
+  vertical-align: middle;
+}
+
+[data-dpr="1"] .pocket button {
+  font-size: 13px;
+}
+
+[data-dpr="2"] .pocket button {
+  font-size: 26px;
+}
+
+[data-dpr="3"] .pocket button {
+  font-size: 39px;
+}
+
+.pocket div img {
+  width: 26%;
+  vertical-align: middle;
+}
+
+.pocket .tryBtn {
+  width: 44%;
+  display: block;
+  margin: 2% auto 0;
+  height: 1.333333rem;
+  line-height: 1.333333rem;
+  text-align: center;
+  background: #d32e37;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+[data-dpr="1"] .pocket .tryBtn {
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+[data-dpr="2"] .pocket .tryBtn {
+  border-radius: 10px;
+  font-size: 36px;
+}
+
+[data-dpr="3"] .pocket .tryBtn {
+  border-radius: 15px;
+  font-size: 54px;
+}
+
+.rule {
+  display: block;
+  text-align: center;
+  margin: 0.6rem 0 0;
+  color: #f9d354!important;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+[data-dpr="1"] .rule {
+  font-size: 17px;
+}
+
+[data-dpr="2"] .rule {
+  font-size: 34px;
+}
+
+[data-dpr="3"] .rule {
+  font-size: 51px;
+}
+
+.ruleInner {
+  color: #f9d354;
+  border: 2px solid #f8d253;
+  width: 94%;
+  margin: 8% auto 0;
+  padding: 0 4%;
+  counter-reset: section;
+}
+
+.ruleInner h5 {
+  text-align: center;
+  width: 50%;
+  margin: -6% auto 5%;
+  background: #061535;
+  letter-spacing: 0.013333rem;
+}
+
+[data-dpr="1"] .ruleInner h5 {
+  font-size: 20px;
+}
+
+[data-dpr="2"] .ruleInner h5 {
+  font-size: 40px;
+}
+
+[data-dpr="3"] .ruleInner h5 {
+  font-size: 60px;
+}
+
+.ruleInner p {
+  margin-bottom: 3%;
+  counter-increment: section;
+  padding-left: 0.666667rem;
+  position: relative;
+}
+
+[data-dpr="1"] .ruleInner p {
+  font-size: 15px;
+}
+
+[data-dpr="2"] .ruleInner p {
+  font-size: 30px;
+}
+
+[data-dpr="3"] .ruleInner p {
+  font-size: 45px;
+}
+
+.ruleInner p:before {
+  content: counter(section) "、 ";
+  position: absolute;
+  left: 0;
+}
+
+[data-dpr="1"] .ruleInner p:before {
+  font-size: 18px;
+}
+
+[data-dpr="2"] .ruleInner p:before {
+  font-size: 36px;
+}
+
+[data-dpr="3"] .ruleInner p:before {
+  font-size: 54px;
+}
+
+.luckGame {
+  padding-top: 8%;
+}
+
+.luckGame h5,
+.luckGame .firP {
+  color: #f9d253;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+[data-dpr="1"] .luckGame h5,
+[data-dpr="1"] .luckGame .firP {
+  font-size: 20px;
+}
+
+[data-dpr="2"] .luckGame h5,
+[data-dpr="2"] .luckGame .firP {
+  font-size: 40px;
+}
+
+[data-dpr="3"] .luckGame h5,
+[data-dpr="3"] .luckGame .firP {
+  font-size: 60px;
+}
+
+.luckGame .firP {
+  margin-top: 3%;
+}
+
+.luckGame .btnBox {
+  margin: 5% 0;
+  padding: 0 10%;
+}
+
+.luckGame .btnBox a {
+  display: inline-block;
+  width: 48%;
+  line-height: 1.066667rem;
+  border-radius: 0.066667rem;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+[data-dpr="1"] .luckGame .btnBox a {
+  font-size: 20px;
+}
+
+[data-dpr="2"] .luckGame .btnBox a {
+  font-size: 40px;
+}
+
+[data-dpr="3"] .luckGame .btnBox a {
+  font-size: 60px;
+}
+
+.luckGame .btnBox a.buy {
+  background: #d32e37;
+}
+
+.luckGame .btnBox a.telParent {
+  background: #e57d18;
+}
+
+.luckGame .bgLuck {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2% 0;
+}
+
+.luckGame .bgLuck p {
+  color: #467bc7;
+  text-align: center;
+}
+
+[data-dpr="1"] .luckGame .bgLuck p {
+  font-size: 13px;
+}
+
+[data-dpr="2"] .luckGame .bgLuck p {
+  font-size: 26px;
+}
+
+[data-dpr="3"] .luckGame .bgLuck p {
+  font-size: 39px;
+}
+
+.hideCss {
+  display: none;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.share {
+  width: 100%;
+}
+
+.share img {
+  display: block;
+  width: 70%;
+  margin: 2% auto 0;
+}
+/*# sourceMappingURL=styles.css.map */

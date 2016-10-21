@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { alert, addAlertEvent, removeAlertEvent } from '../../utils/alert';
 
-import styles from '../../../../public/less/818/index.less';
+import styles from '../../../../public/818/less/818/index.less';
 
 class Alert extends Component {
 
@@ -25,7 +25,7 @@ class Alert extends Component {
     addAlertEvent(this.setAlertShow)
   }
 
-  comfirm = () => {   
+  comfirm = () => {
     this.setState({alertStyle: styles.hide});
     if(typeof this.comfirmHandler=='function')
       setTimeout(this.comfirmHandler,0);

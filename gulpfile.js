@@ -10,7 +10,7 @@ gulp.task('cssmin',function(){
 });
 
 gulp.task('jsmin',function(){
-    return gulp.src('dist/**/*.js')
+    return gulp.src(['dist/**/*.js','!dist/**/client.config.js'])
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });

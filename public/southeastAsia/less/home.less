@@ -1,0 +1,106 @@
+//border 1 /*no*/
+@imgUrl:"../images/";
+@c_fff:#fff;
+.container{
+  width: 100%;
+  height: auto;
+  background: #041743;
+  overflow: scroll;
+  // min-height: 100vh;
+  .banner{
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .redPocket{
+    position: fixed;
+    bottom: 1%;
+    left: 0;
+    width: 100%;
+    z-index: 90;
+    a{
+      display: block;
+      z-index: 2;
+      position: relative;
+      &:before{
+        content: '';
+        width: 100%;
+        height: 80%;
+        background: rgba(0,0,0,.5);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+      img{
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+        z-index: 2;
+      }
+    }
+  }
+  .proList{
+    .proBox{
+      width: 96%;
+      margin: 0 auto 12%;
+      position: relative;
+      img{
+        width: 100%;
+        height: auto;
+      }
+      &:last-child{
+        h5{
+          background: rgba(0,0,0,.58);
+        }
+      }
+    }
+    .des{
+      width: 100%;
+      text-align: right;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      h5{
+        color: @c_fff;
+        font-size: 36px;/*px*/
+        font-weight: bold;
+        background: rgba(0,0,0,.59);
+        padding: 1% 3% 1% 0;
+      }
+      p{
+        color: #1c3d89;
+        font-size: 28px;/*px*/
+        background: rgba(249,249,249,.82);
+        .text_over();
+        padding-right: 3%;
+        line-height: 1.8;
+      }
+    }
+    .firstBox{
+      width: 100%;
+      .des{
+        bottom: auto;
+        top: 18%;
+      }
+      p{
+        color: @c_fff;
+        background: rgba(0,0,0,.59);
+      }
+    }
+  }
+}
+
+.request-load{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: url("@{imgUrl}loading.gif") no-repeat center center;
+  background-size: 60px auto;/*px*/
+  z-index: 999999;
+}

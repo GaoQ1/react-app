@@ -1,6 +1,7 @@
 import './fetch'
 import {hybirdLogin,getP} from './HybirdAPI/UtilityApi'
-import { alert} from '../818/utils/alert';/*
+import { alert} from '../southeastAsia/utils/alert';
+/*
 	@option object
 	{
 		method 请求方式
@@ -14,14 +15,13 @@ import { alert} from '../818/utils/alert';/*
 let reqCount=0;
 
 const ceFecth=function(option){
-	let {method='GET',data,url,params={},credentials, mode="no-cors",headers={},...config}=option;
+	let {method='GET',data,url,params={},credentials='include', mode="no-cors",headers={},...config}=option;
 	if(method.toUpperCase()=='POST')
 	{
 		headers=Object.assign({'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',Accept:'application/json, text/plain, */*'},headers);
 		config.body=headers['Content-Type'].indexOf('x-www-form-urlencoded')==-1?data:serialize(data);
 	}
 
-	Object.assign(params,{p:getP()});//传p值
 	url=(window.ApiUrl||'')+buildUrl(url,paramSerializer(params));
 	reqCount++;
 	if(reqCount>0){
@@ -36,7 +36,7 @@ const ceFecth=function(option){
 	.then(checkStatus)
 	.then(parseJSON)
 	.catch(catchParseJSON)
-	.then(checkCode)
+	// .then(checkCode)
 }
 
 function _get(url,{...config}={}){
@@ -57,7 +57,7 @@ function _post(url,data={},{...config}={}){
 }
 
 function checkStatus(response) {
-  reqCount--;	
+  reqCount--;
   if(reqCount==0)hideLoading();
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
@@ -89,13 +89,9 @@ function catchParseJSON(error){
 }
 
 function checkCode(response={}){
-	 switch(response.Code*1){
+	 switch(response.SuccessCode*1){
 		case 0:
 			return Promise.resolve(response);
-			break;
-		case 4:
-			hybirdLogin();
-			return Promise.reject(response);
 			break;
 		default:
 			if(response.Message)

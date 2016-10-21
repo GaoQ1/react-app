@@ -36,8 +36,7 @@ export function createValidator(rules) {
     Object.keys(rules).forEach((key) => {
       const rule = join([].concat(rules[key])); // concat enables both functions and arrays of functions
       const error = rule(data[key], data);
-      if(error)
-      {
+      if(error){
         errors= errors||{};
         errors[key] = error||'';
       }

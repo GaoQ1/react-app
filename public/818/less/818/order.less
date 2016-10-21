@@ -1,0 +1,105 @@
+.orderBox{
+  background: @c_fff;
+  margin: 18px 0 0;/*px*/
+  &:before{
+    content: '';
+    width: 200%;
+    height: 0;
+    border-top: 1px solid #a9a9a9;/*no*/
+    .scale(0.5,0.5);
+    .transform-origin(0,0);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .orderTit{
+    font-size: 28px;/*px*/
+    color: #333;
+    height: 90px;/*px*/
+    line-height: 90px;/*px*/
+    .payGo{
+      padding-left: 45px;/*px*/
+      background: url("../../images/Group.png") no-repeat left center;
+      background-size: 40px /*px*/ auto;
+      &.okPay{
+        background-image: url("../../images/GroupOk.png");
+      }
+    }
+  }
+  .orderTit,.orderCenter{
+    .flex_box_container();
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+  .orderCenter{
+    font-size: 24px;/*px*/
+    height: 120px;/*px*/
+    color: #999;
+    letter-spacing: -0.6px;
+    p{
+      font-size: 24px;/*px*/
+      font-weight: lighter;
+    }
+    .orderLeft{
+      color: #333;
+      font-size: 28px;/*px*/
+      padding-top: 20px;/*px*/
+      p{
+        color: #999;
+      }
+    }
+    .orderRight{
+      padding-top: 20px;/*px*/
+      p{
+        margin-top: 2px;
+      }
+      .jifen{
+        text-align: right;
+      }
+    }
+  }
+  .zhifu{
+    height: 90px;/*px*/
+    &.hide{
+      display: none;
+    }
+    .btnCopy{
+      display: block;
+      width: 150px;/*px*/
+      height: 58px;/*px*/
+      line-height: 58px;/*px*/
+      text-align: center;
+      color: #5aa5f0;
+      position: absolute;
+      right: 30px;/*px*/
+      top: 16px;/*px*/
+      &:before{
+        content: '';
+        width: 200%;
+        height: 200%;
+        border: 1px solid #5aa5f0;/*no*/
+        .scale(0.5,0.5);
+        .transform-origin(0,0);
+        position: absolute;
+        left: 0;
+        top: 0;
+        .border-radius(80px);
+      }
+    }
+  }
+  .orderTit,.orderCenter,.zhifu{
+    position: relative;
+    padding: 0 30px;/*px*/
+    &:before{
+      content: '';
+      width: 200%;
+      height: 0;
+      border-bottom: 1px solid #a9a9a9;/*no*/
+      .scale(0.5,0.5);
+      .transform-origin(0,0);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
